@@ -1,0 +1,8 @@
+employee_id,email,hire_date,salary,role,experience
+EMP001,john.doe@company.com,15-01-23,75000,Engineer,5
+EMP002,jane.smith@company.com,01-02-22,85000,Manager,8.5
+EMP003,bob@company.com,10-10-21,60000,Analyst,2
+EMP004,alice@company.com,2023-05-15,95000,Engineer,10
+EMP005,eve.doe@company.com,12-12-20,fifty thousand,Analyst,1
+EMP001,duplicate@company.com,01-01-21,50000,Engineer,3
+EMP006,test@company.com,15-01-23
