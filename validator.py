@@ -1,6 +1,7 @@
 import csv
 from pathlib import Path
 import re
+import datetime
 
 #BASE_DIR = Path(__file__).resolve().parent
 
@@ -26,25 +27,28 @@ except FileNotFoundError:
 
 def is_validate_email(email:str) -> bool:
     """Validate the email address format."""
-    email_regex = r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}'
-    return re.fullmatch(email_regex, email) is not None
+    email_regex = r'^[a-z0-9._-]+@company\.com$'
+    return re.fullmatch(email_regex, email, re.IGNORECASE) is not None
     
 def is_valid_date(date_str: str) -> bool:
     """Validate the date format (DD-MM-YY)."""
-    date_regex = r'\d{2}-\d{2}-\d{2}'
-    return re.fullmatch(date_regex, date_str) is not None
+    try:
+        datetime.datetime.strptime(date_str, "%d-%m-%y")
+        return True
+    except ValueError:
+        return False
 
 def is_valid_salary(salary: str) -> bool:
     """Validate the salary format (numeric)."""
     try:
-        salary_value = int(salary)
+        salary_value = float(salary)
         return 118000 <= salary_value <= 120000000
     except ValueError:
         return False
 def is_valid_experience(experience: str) -> bool:
     """Validate the experience format (numeric)."""
     try:
-        experience_value = int(experience)
+        experience_value = float(experience)
         return 0 <= experience_value <= 40
     except ValueError:
         return False    
@@ -72,10 +76,6 @@ def validate_row(row:dict, seen_ids:set) ->list[str]:
     salary = row.get("salary")
     if not salary or not is_valid_salary(salary):
         errors.append("salary is not in range")
-    #validate role
-    role = row.get("role")
-    if not role:
-        errors.append("missing role")
     #validate experience
     experience = row.get("experience")
     if not experience or not is_valid_experience(experience):
