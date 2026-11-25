@@ -9,3 +9,8 @@
 - **What did I ship today?** (created csv, reading csv with script, tried using try and except)
 - **What confused me or took longer than expected?** (Path function throwed error multiple times and leared how to use path and I saw count came as 1 cz instead of += i kept it as =+)
 - **What is the first 20-minute task for next session?** ("I will follow the day 3 plan and undrstand what need to be done")
+
+## Day 2 (Date: 25-11-2026)
+- **What did I ship today?** (create validators and tested validation created)
+- **What confused me or took longer than expected?** (everything is smooth )
+- **What is the first 20-minute task for next session?** ("I will follow the day 4 plan and undrstand what need to be done")
